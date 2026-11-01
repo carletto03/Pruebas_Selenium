@@ -31,6 +31,9 @@ def test_agregar_carrito(driver):
     login.ingresar_credenciales("standard_user", "secret_sauce")
     login.click_login()
 
+    # Asegurar que ya estamos en el inventario antes de buscar elementos
+    assert "inventory.html" in driver.current_url
+
     boton = driver.find_element(
         By.ID, "add-to-cart-sauce-labs-backpack"
     )
